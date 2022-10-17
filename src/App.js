@@ -5,7 +5,7 @@ import { useCallback, useEffect } from 'react';
 
 
 function App() {
-  const synth = new Tone.Synth().toDestination();
+  const synth = new Tone.PolySynth(Tone.Synth).toDestination();
   
   const letterToNote = {
     a: 'A4',
@@ -21,7 +21,7 @@ function App() {
   
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
-    // return () => document.removeEventListener('keydown', handleKeyPress);
+    return () => console.log('render test');
   }, []);
   
 
